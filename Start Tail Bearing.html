@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <title>Hello AngularJS</title>
+  <link href="css/bootstrapV3.0.0.css" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="lib/angularV1.2.13.js"></script>    
+  <script src="js/controllers.js"></script>
+  <script src="js/constants.js"></script>
+</head>
+<body>
+	<div ng-controller="TailNgCtrl" class="container">
+
+    <div class="bs-example top10">
+      <div role="alert" class="alert alert-success">
+        {{welcome}}
+      </div>
+    </div>
+
+    <div class="heel_height_form">
+      <form class="form-horizontal" role="form" name="tail_form" novalidate>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Wall</label>
+          <div class="col-sm-10">
+            <select ng-model="wall" class="form-control" ng-disabled="isLock">
+              <option value="">-- Choose Wall --</option>
+              <option ng-repeat="wall_list in data.wall_list" value="{{wall_list}}">{{wall_list}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Roof Pitch</label>
+          <div class="col-sm-10">
+            <select ng-model="roof_pitch" class="form-control" ng-disabled="isLock">
+              <option value="">-- Choose Root Pitch --</option>
+              <option ng-repeat="roof_pitch_list in data.roof_pitch_list" value="{{roof_pitch_list}}">{{roof_pitch_list}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Lumber</label>
+          <div class="col-sm-10">
+            <select ng-model="lumber" class="form-control" ng-disabled="isLock">
+              <option value="">-- Choose Root Pitch --</option>
+              <option ng-repeat="lumber_list in data.lumber_list" value="{{lumber_list}}">{{lumber_list}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-success" ng-click="getHeelHeight();" ng-disabled="isLock">Heel Height</button>
+            <button type="reset" class="btn btn-warning" ng-click="doReset();">Reset</button>
+          </div>
+        </div>
+
+        <div class="form-group" ng-show='isError'>
+          <label class="col-sm-2 control-label">Error</label>
+          <div class="col-sm-10">
+            <div role="alert" class="alert alert-danger">
+              All values are mandatory!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-hide='isError'>
+          <label class="col-sm-2 control-label">Heel Height</label>
+          <div class="col-sm-10">
+            <div role="alert" class="alert alert-info">
+              {{heel_height}}
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="history">
+
+      <ul class="list-group">
+        <li class="list-group-item panel-info">
+          <span class="badge">{{result_history.length}}</span>
+          <b> Total records in history list now! </b>
+        </li>
+      </ul>
+
+      <table class="table table-striped">
+        <thead>
+          <tr class="info">
+            <th> Wall </th>
+            <th> Roof <br /> Pitch </th>
+            <th> Lumber </th>
+            <th> Heel <br /> Height </th>
+            <th> <button type="submit" class="btn btn-danger btn-sm" ng-click="clearHistory();">Clear History</button> </th>
+          </tr>
+          <thead>
+            <tbody>
+              <tr ng-repeat="history in result_history">
+                <td>{{history.wall}}</td>
+                <td>{{history.roof_pitch}}</td>
+                <td>{{history.lumber}}</td>
+                <td>{{history.heel_height}}</td>
+                <td><button type="submit" class="btn btn-info btn-sm" ng-click="removeHistoryRecord($index);">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </body>
+    </html>

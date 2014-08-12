@@ -1,0 +1,24 @@
+-- Open Source Application --
+
+-- Name -- 
+Tail Bearing Calculation
+
+-- Two way to start app as below  --
+1) Open Start_Tail_Bearing.html in browser
+	OR
+2) Double click on Start_Tail_Bearing.html
+
+
+-- Idea & Structure/Desing Requirement by --
+Tarun, Structure/Desing Engineer, India.
+www.xyz.tarun.com| tarunkall@gmail.com
+
+-- Developed & Design by --
+Bhavesh, Development Engineer, India. 
+https://github.com/bhaveshletter | bhaveshletter@gmail.com
+
+
+-- Technical Detail --
+
+AngularJS --VERSION 1.2.13
+Bootstrap -VERSION 3.0.0
