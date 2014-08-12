@@ -10,7 +10,7 @@ var app = angular.module('myApp', ['myApp.constants'])
   scope.data = {
     wall_list: ['2x4', '2x6'],
     roof_pitch_list: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-    lumber_list: ['2x10', '2x12']
+    lumber_list: ['2x10', '2x12', '2x8', '1.5x11.875LVL']
   };
 
   // Display hell height when user click on 'Heel Height' button        
